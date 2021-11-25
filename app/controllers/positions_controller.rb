@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_action :set_position, only: [:show, :edit, :update, :destroy]
+  before_action :set_position, only: [:show, :update, :destroy]
 
   def index
     render json: Position.all
@@ -7,10 +7,6 @@ class PositionsController < ApplicationController
 
   def show
     render json: @position
-  end
-
-  def new
-    position = Position.new
   end
 
   def create
@@ -22,8 +18,6 @@ class PositionsController < ApplicationController
       render_error(position)
     end
   end
-
-  def edit; end
 
   def update
     @position.update(position_params)

@@ -9,10 +9,6 @@ class SkillsController < ApplicationController
     render json: @skill
   end
 
-  def new
-    skill = Skill.new
-  end
-
   def create
     skill = Skill.new(skill_params)
 
@@ -22,8 +18,6 @@ class SkillsController < ApplicationController
       render_error(skill)
     end
   end
-
-  def edit; end
 
   def update
     @skill.update(skill_params)

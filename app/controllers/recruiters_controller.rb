@@ -1,5 +1,5 @@
 class RecruitersController < ApplicationController
-  before_action :set_recruiter, only: [:show, :edit, :update, :destroy]
+  before_action :set_recruiter, only: [:show, :update, :destroy]
 
   def index
     render json: Recruiter.all
@@ -7,10 +7,6 @@ class RecruitersController < ApplicationController
 
   def show
     render json: @recruiter
-  end
-
-  def new
-    recruiter = Recruiter.new
   end
 
   def create
@@ -22,8 +18,6 @@ class RecruitersController < ApplicationController
       render_error(recruiter)
     end
   end
-
-  def edit; end
 
   def update
     @recruiter.update(recruiter_params)

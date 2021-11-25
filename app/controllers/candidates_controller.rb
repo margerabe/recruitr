@@ -2,7 +2,7 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: Candidate.all
+    render json: Candidate.includes(:position)
   end
 
   def show

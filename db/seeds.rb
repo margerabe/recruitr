@@ -7,12 +7,21 @@ Skill.destroy_all
 
 puts "Creating positions..."
 
-Position.create(title: "Frontend Engineer")
-Position.create(title: "Marketing Content Manager")
-Position.create(title: "Mobile Developer")
-Position.create(title: "Backend Intern")
+position1 = Position.create(title: "Frontend Engineer")
+position2 = Position.create(title: "Marketing Content Manager")
+position3 = Position.create(title: "Mobile Developer")
+position4 = Position.create(title: "Backend Intern")
 
 puts "Positions created!"
+
+puts "Creating candidates..."
+
+Candidate.create(first_name: "Jean-Marie", last_name: "Leduc", email: "jleduc@gmail.com", position: position1)
+Candidate.create(first_name: "Claude", last_name: "Dufonsny", email: "cdufonsny@gmail.com", position: position2)
+Candidate.create(first_name: "Arthur", last_name: "Dupont", email: "adupont@gmail.com", position: position3)
+Candidate.create(first_name: "Fernand", last_name: "Lelob", email: "flelob@gmail.com", position: position4)
+
+puts "Candidates created!"
 
 puts "Creating recruiters..."
 

@@ -22,17 +22,19 @@ ActiveRecord::Schema.define(version: 2021_11_24_212000) do
     t.index ["position_id"], name: "index_candidates_on_position_id"
   end
 
+  create_table "position_skills", force: :cascade do |t|
+    t.integer "position_id", null: false
+    t.integer "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["position_id"], name: "index_position_skills_on_position_id"
+    t.index ["skill_id"], name: "index_position_skills_on_skill_id"
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "positions_skills", id: false, force: :cascade do |t|
-    t.integer "position_id", null: false
-    t.integer "skill_id", null: false
-    t.index ["position_id"], name: "index_positions_skills_on_position_id"
-    t.index ["skill_id"], name: "index_positions_skills_on_skill_id"
   end
 
   create_table "recruiters", force: :cascade do |t|
@@ -50,4 +52,6 @@ ActiveRecord::Schema.define(version: 2021_11_24_212000) do
   end
 
   add_foreign_key "candidates", "positions"
+  add_foreign_key "position_skills", "positions"
+  add_foreign_key "position_skills", "skills"
 end

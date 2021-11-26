@@ -11,12 +11,9 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(interview_params)
-    random_offset = rand(Recruiter.count)
-    random_recruiter = Recruiter.offset(random_offset).first
-    @interview.recruiter = random_recruiter
 
     if @interview.save
-      # InterviewMailer.with(interview: @interview).interview_email.deliver_later
+      InterviewMailer.with(interview: @interview).interview_email.deliver_later
       render json: @interview, status: :created
     else
       render_error(@interview)
@@ -45,6 +42,6 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:start_time, :end_time, :candidate_id)
+    params.require(:interview).permit(:start_time, :end_time, :candidate_id, :recruiter_id)
   end
 end

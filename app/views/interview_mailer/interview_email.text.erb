@@ -1,0 +1,19 @@
+
+Dear,
+
+We are delighted to confirm that we have scheduled an upcoming job interview for the position of <%= @interview.candidate.position.title %>.
+
+***************
+
+Interviewer: <%= @interview.recruiter.full_name %>
+
+Interviewee: <%= @interview.candidate.full_name %>
+
+When: <%= "#{@interview.start_time.strftime("%d/%m/%Y, %H:%M")} - #{@interview.end_time.strftime("%H:%M")} #{Time.zone.name}" %>
+
+Position: <%= @interview.candidate.position.title %>
+
+***************
+
+Kind regards, 
+The Recruitr team

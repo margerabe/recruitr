@@ -3,17 +3,20 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Interview confirmation</h1>
+    <h1>Confirmation of interview</h1>
     <p>
-      Dear <%= @interview.candidate.first_name %>, we are delighted to confirm that we have scheduled an interview regarding your application for the position of <%= @interview.candidate.position.title %>.<br>
+      We are delighted to confirm that we have scheduled an upcoming job interview for the position of  <%= @interview.candidate.position.title %>.<br>
     </p>
     <p>
       <strong>When: </strong><%= "#{@interview.start_time.strftime("%d/%m/%Y, %H:%M")} - #{@interview.end_time.strftime("%H:%M")} #{Time.zone.name}" %>
     </p>
     <p>
-      <strong>Interviewer:</strong> <%= @interview.recruiter.full_name %>. This person will call you directly.
+      <strong>Interviewer:</strong> <%= @interview.recruiter.full_name %>.
     </p>
-    <p>Thanks for applying and good luck!</p>
+    <p>
+      <strong>Interviewee:</strong> <%= @interview.candidate.full_name %>.
+    </p>
+    <p>The interviewer will call the interviewee directly. We wish you both a nice interview!</p>
     <p>The Recruitr team</p>
   </body>
 </html>

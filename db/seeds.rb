@@ -39,8 +39,6 @@ puts "Creating interviews..."
 Interview.create(start_time: DateTime.new(2022, 1, 15, 10, 0, 0), end_time: DateTime.new(2022, 1, 15, 11, 0, 0), candidate: candidate, recruiter: recruiter)
 # The same recruiter has a second interview a month later
 Interview.create(start_time: DateTime.new(2022, 2, 15, 10, 0, 0), end_time: DateTime.new(2022, 2, 15, 11, 0, 0), candidate: candidate2, recruiter: recruiter)
-Interview.create(start_time: DateTime.new(2022, 3, 15, 10, 0, 0), end_time: DateTime.new(2022, 3, 15, 11, 0, 0), candidate: candidate3, recruiter: recruiter3)
-Interview.create(start_time: DateTime.new(2022, 4, 15, 10, 0, 0), end_time: DateTime.new(2022, 4, 15, 11, 0, 0), candidate: candidate4, recruiter: recruiter4)
 puts "Interviews created!"
 
 puts "All done with the seeds."

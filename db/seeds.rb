@@ -1,5 +1,6 @@
 puts "Destroying existing records..."
 
+Interview.destroy_all
 Candidate.destroy_all
 Position.destroy_all
 Recruiter.destroy_all
@@ -7,6 +8,7 @@ Skill.destroy_all
 
 puts "Creating positions..."
 
+position = Position.create(title: "Full Stack Engineer")
 position1 = Position.create(title: "Frontend Engineer")
 position2 = Position.create(title: "Marketing Content Manager")
 position3 = Position.create(title: "Mobile Developer")
@@ -16,6 +18,7 @@ puts "Positions created!"
 
 puts "Creating candidates..."
 
+Candidate.create(first_name: "Raphaël", last_name: "Marsan", email: "marsanraphael@gmail.com", position: position)
 Candidate.create(first_name: "Jean-Marie", last_name: "Leduc", email: "jleduc@gmail.com", position: position1)
 Candidate.create(first_name: "Claude", last_name: "Dufonsny", email: "cdufonsny@gmail.com", position: position2)
 Candidate.create(first_name: "Arthur", last_name: "Dupont", email: "adupont@gmail.com", position: position3)

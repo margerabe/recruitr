@@ -2,7 +2,7 @@ class InterviewsController < ApplicationController
   before_action :set_interview, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: Interview.all
+    render json: Interview.includes(:candidate)
   end
 
   def show
@@ -10,15 +10,16 @@ class InterviewsController < ApplicationController
   end
 
   def create
-    interview = Interview.new(interview_params)
+    @interview = Interview.new(interview_params)
     random_offset = rand(Recruiter.count)
     random_recruiter = Recruiter.offset(random_offset).first
-    interview.recruiter = random_recruiter
+    @interview.recruiter = random_recruiter
 
-    if interview.save
-      render json: interview, status: :created
+    if @interview.save
+      # InterviewMailer.with(interview: @interview).interview_email.deliver_later
+      render json: @interview, status: :created
     else
-      render_error(interview)
+      render_error(@interview)
     end
   end
 

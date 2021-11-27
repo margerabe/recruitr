@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class PositionSerializer < ActiveModel::Serializer
-  attributes :id, :title
+  attributes :id, :title, :skills
   has_many :candidates
-  has_many :skills, through: :position_skills
+
+  def skills
+    object.skills.pluck(:name)
+  end
 end

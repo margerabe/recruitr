@@ -1,4 +1,4 @@
-**Recruiter app - Small API powering a recruitment system**
+**[Recruiter app](https://recruitr-rm.herokuapp.com/) - Small API powering a recruitment system**
 
 No authentication layer was built in the context of this app. Assumption: only one user, the HR manager, who is logged in from the start.
 

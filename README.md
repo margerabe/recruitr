@@ -4,7 +4,7 @@ This small API contains basic RESTful routes allowing **CRUD actions** on the fo
 - Position
 - Candidate (creating a candidate implies linking it to a position from the start. Assumption: one position per candidate only)
 - Recruiter
-- Skill (there is a join table between position and skills given the N-N relationship)
+- Skill (there is a join table between positions and skills given the N-N relationship)
 - Interview (see below)
 
 To **assign a skill to a position**: 
@@ -13,6 +13,7 @@ To **assign a skill to a position**:
 
 Possibility to **create an interview** via POST /interviews. Based on following assumptions: 
 - A candidate can only have one interview, for only one position
+- A recruiter needs to be assigned manually to the interview based on its id (the recruiter matching/suggestion mechanism is out of scope of this app)
 - A recruiter can have many interviews for different positions (at different points in time)
 
 After creation of an interview, an **e-mail** is sent to both the recruiter and the candidate along with an .ics file for Outlook integration.

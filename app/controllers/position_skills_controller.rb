@@ -2,7 +2,7 @@
 
 class PositionSkillsController < ApplicationController
   def index
-    render json: PositionSkills.all
+    render json: PositionSkill.all
   end
 
   def create

@@ -12,6 +12,7 @@ class PositionsController < ApplicationController
   end
 
   def create
+    puts params
     position = Position.new(position_params)
 
     if position.save
@@ -43,6 +44,6 @@ class PositionsController < ApplicationController
   end
 
   def position_params
-    params.require(:position).permit(:title)
+    params.require(:position).permit(:title, :skill_ids => [])
   end
 end

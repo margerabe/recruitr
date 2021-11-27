@@ -23,3 +23,7 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  database: d3034v476fs2s9
+  username: ktuqvliwydbbth
+  password: <%= ENV['RECRUITR_DATABASE_PASSWORD'] %>
+  url: <%= ENV.fetch("DATABASE_URL", "") %>

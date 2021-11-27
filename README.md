@@ -1,5 +1,7 @@
 **Recruiter app - Small API powering a recruitment system**
 
+No authentication layer was built in the context of this app. Assumption: only one user, the HR manager, who is logged in from the start.
+
 This small API contains basic RESTful routes allowing **CRUD actions** on the following models: 
 - Position
 - Candidate (creating a candidate implies linking it to a position from the start. Assumption: one position per candidate only)
@@ -18,5 +20,3 @@ Possibility to **create an interview** via POST /interviews. Based on following 
 
 After creation of an interview, an **e-mail** is sent to both the recruiter and the candidate along with an .ics file for Outlook integration.
 For the mailer to work, uncomment lines in create action of InterviewsController and enter Gmail password in development.rb
-
-No authentication layer was built in the context of this app.

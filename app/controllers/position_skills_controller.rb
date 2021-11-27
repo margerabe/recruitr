@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PositionSkillsController < ApplicationController
   def index
     render json: PositionSkills.all

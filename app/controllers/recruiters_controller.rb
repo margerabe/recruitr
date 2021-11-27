@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RecruitersController < ApplicationController
-  before_action :set_recruiter, only: [:show, :update, :destroy]
+  before_action :set_recruiter, only: %i[show update destroy]
 
   def index
     render json: Recruiter.all

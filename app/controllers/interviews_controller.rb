@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class InterviewsController < ApplicationController
-  before_action :set_interview, only: [:show, :edit, :update, :destroy]
+  before_action :set_interview, only: %i[show edit update destroy]
 
   def index
     render json: Interview.includes(:candidate)
@@ -15,7 +17,7 @@ class InterviewsController < ApplicationController
     if @interview.save
       # For e-mail to work, set password in development.rb
       # InterviewMailer.with(interview: @interview).interview_email.deliver_later
-      
+
       render json: @interview, status: :created
     else
       render_error(@interview)

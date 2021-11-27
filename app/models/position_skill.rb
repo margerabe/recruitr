@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PositionSkill < ApplicationRecord
   belongs_to :skill
   belongs_to :position

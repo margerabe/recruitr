@@ -1,12 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root 'positions#index'
 
-  resources :positions, except: [:new, :edit]
-  resources :candidates, except: [:new, :edit]
-  resources :recruiters, except: [:new, :edit]
-  resources :skills, except: [:new, :edit]
-  resources :position_skills, except: [:new, :edit]
-  resources :interviews, except: [:new, :edit]
-
+  resources :positions, except: %i[new edit]
+  resources :candidates, except: %i[new edit]
+  resources :recruiters, except: %i[new edit]
+  resources :skills, except: %i[new edit]
+  resources :position_skills, except: %i[new edit]
+  resources :interviews, except: %i[new edit]
 end

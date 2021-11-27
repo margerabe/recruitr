@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CandidatesController < ApplicationController
-  before_action :set_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :set_candidate, only: %i[show edit update destroy]
 
   def index
     render json: Candidate.includes(:position)

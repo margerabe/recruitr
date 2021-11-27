@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Candidate < ApplicationRecord
   belongs_to :position
   has_one :interview, dependent: :destroy

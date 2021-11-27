@@ -12,7 +12,6 @@ class PositionsController < ApplicationController
   end
 
   def create
-    puts params
     position = Position.new(position_params)
 
     if position.save

@@ -15,13 +15,13 @@ puts 'Positions created!'
 puts 'Creating candidates...'
 candidate = Candidate.create(first_name: 'Raphaël', last_name: 'Marsan', email: 'marsanraphael@gmail.com',
                              position: position)
-candidate2 = Candidate.create(first_name: 'Jean-Marie', last_name: 'Leduc', email: 'jleduc@gmail.com',
+candidate2 = Candidate.create(first_name: 'Jean-Luc', last_name: 'Leclerc', email: 'jlleclerc123456789@gmail.com',
                               position: position1)
 
 puts 'Creating recruiters...'
-recruiter = Recruiter.create(first_name: 'Jean-Marie', last_name: 'Leduc', email: 'jleduc@gmail.com')
-Recruiter.create(first_name: 'Harold', last_name: 'Jardin', email: 'hjardin@gmail.com')
-Recruiter.create(first_name: 'Sébastien', last_name: 'Paulus', email: 'spaulus@gmail.com')
+recruiter = Recruiter.create(first_name: 'Jean-Marie', last_name: 'Leduc', email: 'jleduc123456789@gmail.com')
+Recruiter.create(first_name: 'Harold', last_name: 'Jardin', email: 'hjardin123456789@gmail.com')
+Recruiter.create(first_name: 'Sébastien', last_name: 'Paulus', email: 'spaulus123456789@gmail.com')
 puts 'Recruiters created!'
 
 puts 'Creating skills...'

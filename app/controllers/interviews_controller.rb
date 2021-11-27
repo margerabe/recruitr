@@ -13,7 +13,9 @@ class InterviewsController < ApplicationController
     @interview = Interview.new(interview_params)
 
     if @interview.save
-      InterviewMailer.with(interview: @interview).interview_email.deliver_later
+      # For e-mail to work, set password in development.rb
+      # InterviewMailer.with(interview: @interview).interview_email.deliver_later
+      
       render json: @interview, status: :created
     else
       render_error(@interview)

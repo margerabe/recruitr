@@ -79,6 +79,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    icalendar (2.7.1)
+      ice_cube (~> 0.16)
+    ice_cube (0.16.4)
     jsonapi-renderer (0.2.2)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -158,6 +161,7 @@ DEPENDENCIES
   active_model_serializers
   bootsnap (>= 1.4.4)
   byebug
+  icalendar
   listen (~> 3.3)
   puma (~> 5.0)
   rails (~> 6.1.3)

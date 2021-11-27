@@ -75,4 +75,9 @@ Rails.application.configure do
     password: '',
     enable_starttls_auto: true
   }
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.rails_logger = true
+  end
 end

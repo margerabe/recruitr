@@ -4,7 +4,7 @@ class RecruitersController < ApplicationController
   before_action :set_recruiter, only: %i[show update destroy]
 
   def index
-    render json: Recruiter.all
+    render json: Recruiter.includes([:interviews])
   end
 
   def show

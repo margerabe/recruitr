@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: %i[show edit update destroy]
 
   def index
-    render json: Candidate.includes(:position)
+    render json: Candidate.includes([:position, :interview])
   end
 
   def show

@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: recruitr_production
+  database: ddps6j4gunmp5c
   username: ycagknnfplvgjy
   password: <%= ENV['RECRUITR_DATABASE_PASSWORD'] %>
-  url: <%= ENV.fetch("DATABASE_URL", "") %>
+  url: postgres://ycagknnfplvgjy:b3b3174bc633a4b3063d04c26daea9ebaa83d566a1661f485e59e83e67497317@ec2-54-220-166-184.eu-west-1.compute.amazonaws.com:5432/ddps6j4gunmp5c

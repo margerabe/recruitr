@@ -17,7 +17,7 @@ Possibility to **create an interview** via POST /interviews. Based on following 
 - A candidate can only have one interview, for only one position
 - A recruiter needs to be assigned manually to the interview based on its id (the recruiter matching/suggestion mechanism is out of scope of this app)
 - A recruiter can have many interviews for different positions (at different points in time)
-- The interview necessitates a start_time and end_time, both DateTime objects in Ruby. 
+- The interview necessitates a start_time and end_time of the following format (raw json): "16/02/2022 10:00"
 
 After creation of an interview, an **e-mail** is sent to both the recruiter and the candidate along with an .ics file for Outlook integration.
 For the mailer to work, uncomment lines in create action of InterviewsController and enter Gmail password in development.rb

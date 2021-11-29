@@ -3,13 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-group :development, :test do
-  gem 'sqlite3'
-end
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 ruby '3.0.3'
 gem 'active_model_serializers'
@@ -19,7 +14,6 @@ gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
-# Use sqlite3 as the database for Active Record
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'

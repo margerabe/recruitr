@@ -1,5 +1,11 @@
 one:
-  name: String
+  name: Skill
 
 two:
-  name: String2
+  name: Skill2
+
+three:
+  name: Skill3
+
+four:
+  name: Skill4

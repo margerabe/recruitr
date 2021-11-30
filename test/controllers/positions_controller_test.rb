@@ -27,6 +27,21 @@ class PositionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :created
   end
 
+  test 'CREATE position with skills' do
+    assert_difference('Position.count') do
+      post positions_url, params: { position: 
+                                      { 
+                                        title: @position.title, 
+                                        skill_ids: [skills(:three).id, skills(:four).id]
+                                      } 
+                                  }
+    end
+    json_response = JSON.parse(response.body)
+    
+    assert_response :created
+    assert_equal 2, json_response["skills"].length
+  end
+
   test 'UPDATE position' do
     patch position_url(@position), params: { position: { title: "New position" } }
     json_response = JSON.parse(response.body)

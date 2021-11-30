@@ -33,7 +33,7 @@ class RecruitersController < ApplicationController
 
   def destroy
     @recruiter.destroy
-    render json: Recruiter.all
+    render json: recruiters_url, status: :no_content
   end
 
   private
@@ -43,6 +43,6 @@ class RecruitersController < ApplicationController
   end
 
   def recruiter_params
-    params.require(:recruiter).permit(:title)
+    params.require(:recruiter).permit(:first_name, :last_name, :email)
   end
 end

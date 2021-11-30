@@ -5,6 +5,7 @@ require 'test_helper'
 class RecruitersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @recruiter = recruiters(:one)
+    @recruiter2 = recruiters(:two)
   end
 
   test 'INDEX recruiter' do
@@ -20,7 +21,7 @@ class RecruitersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'CREATE recruiter' do
-    assert_difference('Candidate.count') do
+    assert_difference('Recruiter.count') do
       post recruiters_url, params: { recruiter: 
                                       { 
                                         first_name: "François",
@@ -60,8 +61,8 @@ class RecruitersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'DESTROY recruiter' do
-    assert_difference('Candidate.count', -1) do
-      delete recruiter_url(@recruiter)
+    assert_difference('Recruiter.count', -1) do
+      delete recruiter_url(@recruiter2)
     end
 
     assert_response :no_content

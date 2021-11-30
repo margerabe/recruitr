@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SkillsController < ApplicationController
-  before_action :set_skill, only: %i[show edit update destroy]
+  before_action :set_skill, only: %i[show update destroy]
 
   def index
     render json: Skill.includes([:position_skills, :positions])
@@ -33,7 +33,7 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
-    render json: Skill.all
+    render json: skills_url, status: :no_content
   end
 
   private
@@ -43,6 +43,6 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:title)
+    params.require(:skill).permit(:name)
   end
 end

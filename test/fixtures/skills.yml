@@ -1,0 +1,5 @@
+one:
+  name: String
+
+two:
+  name: String2

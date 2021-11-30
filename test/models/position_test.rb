@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class PositionTest < ActiveSupport::TestCase
   def setup
@@ -13,12 +13,12 @@ class PositionTest < ActiveSupport::TestCase
     assert @position.valid?
   end
 
-  test "should not save a position without a title" do
+  test 'should not save a position without a title' do
     position = Position.new
-    assert_not position.save, "Saved the position without a title"
+    assert_not position.save, 'Saved the position without a title'
   end
 
-  test "association - position should have several candidates" do
+  test 'association - position should have several candidates' do
     assert_equal 2, @position.candidates.size
   end
 
@@ -29,4 +29,3 @@ class PositionTest < ActiveSupport::TestCase
     end
   end
 end
-

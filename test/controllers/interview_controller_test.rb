@@ -19,19 +19,53 @@ class InterviewsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'CREATE interview' do
+    new_start_time = DateTime.new(2022, 0o5, 13, 16, 0, 0)
+
+    assert_difference('Interview.count') do
+      post interviews_url, params: {
+        interview: {
+          start_time: new_start_time,
+          end_time: new_start_time + 1.hour,
+          candidate_id: candidates(:two).id,
+          recruiter_id: recruiters(:two).id
+        }
+      }
+    end
+
+    assert :success
+  end
+
+  test 'EMAIL after interview creation' do
+    new_start_time = DateTime.new(2022, 0o5, 13, 16, 0, 0)
+
+    assert_emails(1) do
+      post interviews_url, params: {
+        interview: {
+          start_time: new_start_time,
+          end_time: new_start_time + 1.hour,
+          candidate_id: candidates(:two).id,
+          recruiter_id: recruiters(:two).id
+        }
+      }
+    end
+
+    assert :success
+  end
+
   test 'UPDATE interview' do
-    patch interview_url(@interview), params: { interview: { 
-                                                  start_time: DateTime.new(2022,10,13,16,0,0),
-                                                  end_time: DateTime.new(2022,10,13,17,0,0)
-                                                } 
-                                              }
+    new_start_time = DateTime.new(2022, 10, 13, 16, 0, 0)
+    patch interview_url(@interview), params: { interview: {
+      start_time: new_start_time,
+      end_time: new_start_time + 1.hour
+    } }
     json_response = JSON.parse(response.body)
 
-    assert_equal DateTime.new(2022,10,13,17,0,0), json_response["end_time"]
+    assert_equal new_start_time, json_response['start_time']
   end
 
   test 'should not UPDATE interview with blank start date' do
-    patch interview_url(@interview), params: { interview: { start_date: "" } }
+    patch interview_url(@interview), params: { interview: { start_date: '' } }
 
     assert_response :unprocessable_entity
   end

@@ -22,40 +22,38 @@ class RecruitersControllerTest < ActionDispatch::IntegrationTest
 
   test 'CREATE recruiter' do
     assert_difference('Recruiter.count') do
-      post recruiters_url, params: { recruiter: 
-                                      { 
-                                        first_name: "François",
-                                        last_name: "Dupont",
-                                        email: "fdupont@gmail.com"
-                                      }
-                                    }
+      post recruiters_url, params: { recruiter:
+                                      {
+                                        first_name: 'François',
+                                        last_name: 'Dupont',
+                                        email: 'fdupont@gmail.com'
+                                      } }
     end
 
     assert_response :created
   end
 
   test 'cannot CREATE recruiter with existing email' do
-    post recruiters_url, params: { recruiter: 
-                                    { 
-                                      first_name: "François",
-                                      last_name: "Dupont",
+    post recruiters_url, params: { recruiter:
+                                    {
+                                      first_name: 'François',
+                                      last_name: 'Dupont',
                                       email: @recruiter.email
-                                    }
-                                  }
+                                    } }
 
     assert_response :unprocessable_entity
   end
 
   test 'UPDATE recruiter' do
-    patch recruiter_url(@recruiter), params: { recruiter: { first_name: "Bertrand" } }
+    patch recruiter_url(@recruiter), params: { recruiter: { first_name: 'Bertrand' } }
     json_response = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal "Bertrand", json_response["first_name"]
+    assert_equal 'Bertrand', json_response['first_name']
   end
 
   test 'should not UPDATE recruiter with blank email' do
-    patch recruiter_url(@recruiter), params: { recruiter: { email: "" } }
+    patch recruiter_url(@recruiter), params: { recruiter: { email: '' } }
 
     assert_response :unprocessable_entity
   end

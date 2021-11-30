@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: %i[show update destroy]
 
   def index
-    render json: Skill.includes([:position_skills, :positions])
+    render json: Skill.includes(%i[position_skills positions])
   end
 
   def show

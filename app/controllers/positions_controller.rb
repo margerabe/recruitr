@@ -41,6 +41,6 @@ class PositionsController < ApplicationController
   end
 
   def position_params
-    params.require(:position).permit(:title, :skill_ids => [])
+    params.require(:position).permit(:title, skill_ids: [])
   end
 end

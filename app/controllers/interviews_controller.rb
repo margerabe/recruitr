@@ -16,7 +16,7 @@ class InterviewsController < ApplicationController
 
     if @interview.save
       InterviewMailer.with(interview: @interview).interview_email.deliver_later
-      
+
       render json: @interview, status: :created
     else
       render_error(@interview)

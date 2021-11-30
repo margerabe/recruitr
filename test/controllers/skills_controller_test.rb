@@ -21,22 +21,22 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
 
   test 'CREATE skill' do
     assert_difference('Skill.count') do
-      post skills_url, params: { skill: { name: "New skill" } }
+      post skills_url, params: { skill: { name: 'New skill' } }
     end
 
     assert_response :created
   end
 
   test 'UPDATE skill' do
-    patch skill_url(@skill), params: { skill: { name: "New skill version two" } }
+    patch skill_url(@skill), params: { skill: { name: 'New skill version two' } }
     json_response = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal "New skill version two", json_response["name"]
+    assert_equal 'New skill version two', json_response['name']
   end
 
   test 'should not UPDATE skill with blank name' do
-    patch skill_url(@skill), params: { skill: { name: "" } }
+    patch skill_url(@skill), params: { skill: { name: '' } }
 
     assert_response :unprocessable_entity
   end

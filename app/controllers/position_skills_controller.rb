@@ -2,7 +2,7 @@
 
 class PositionSkillsController < ApplicationController
   def index
-    render json: PositionSkill.includes([:position, :skill])
+    render json: PositionSkill.includes(%i[position skill])
   end
 
   def create

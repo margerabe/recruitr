@@ -5,8 +5,6 @@ require "test_helper"
 class InterviewTest < ActiveSupport::TestCase
   def setup
     @interview = interviews(:one)
-    @candidate = candidates(:two)
-    @recruiter = recruiters(:two)
   end
 
   test 'interview should be valid' do

@@ -42,7 +42,6 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'DESTROY skill' do
-    Interview.destroy_all
     assert_difference('Skill.count', -1) do
       delete skill_url(@skill)
     end

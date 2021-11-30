@@ -22,9 +22,7 @@ class RecruitersController < ApplicationController
   end
 
   def update
-    @recruiter.update(recruiter_params)
-
-    if @recruiter.save
+    if @recruiter.update(recruiter_params)
       render json: @recruiter
     else
       render_error(@recruiter)

@@ -22,9 +22,7 @@ class PositionsController < ApplicationController
   end
 
   def update
-    @position.update(position_params)
-
-    if @position.save
+    if @position.update(position_params)
       render json: @position
     else
       render_error(@position)

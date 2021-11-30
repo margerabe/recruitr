@@ -25,12 +25,8 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
-    @candidate.update(candidate_params)
-
-    if @candidate.save
+    if @candidate.update(candidate_params)
       render json: @candidate
     else
       render_error(@candidate)

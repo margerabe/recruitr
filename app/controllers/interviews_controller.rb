@@ -24,9 +24,7 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    @interview.update(interview_params)
-
-    if @interview.save
+    if @interview.update(interview_params)
       InterviewMailer.with(interview: @interview).interview_email.deliver_later
 
       render json: @interview
@@ -37,7 +35,7 @@ class InterviewsController < ApplicationController
 
   def destroy
     @interview.destroy
-    render json: Interview.includes(:candidate)
+    render json: Interview.includes(:candidate), status: :no_content
   end
 
   private

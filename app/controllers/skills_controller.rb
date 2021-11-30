@@ -22,9 +22,7 @@ class SkillsController < ApplicationController
   end
 
   def update
-    @skill.update(skill_params)
-
-    if @skill.save
+    if @skill.update(skill_params)
       render json: @skill
     else
       render_error(@skill)

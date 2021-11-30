@@ -14,6 +14,6 @@ class InterviewSerializer < ActiveModel::Serializer
   end
 
   def position
-    object.candidate.position
+    object.candidate.position.title
   end
 end

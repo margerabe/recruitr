@@ -4,7 +4,9 @@ require "test_helper"
 
 class PositionTest < ActiveSupport::TestCase
   def setup
-    @position = Position.new(title: "The first position.")
+    @position = positions(:one)
+    @candidate1 = candidates(:one)
+    @candidate2 = candidates(:two)
   end
 
   test 'position should be valid' do
@@ -16,12 +18,14 @@ class PositionTest < ActiveSupport::TestCase
     assert_not position.save, "Saved the position without a title"
   end
 
-  test "association test - should have several candidates" do
-    candidate1 = @position.candidates.build(first_name: "Jean-Paul", last_name: "Faucan", email: "jpfaucan@gmail.com")
-    candidate1.save
-    candidate2 = @position.candidates.build(first_name: "Claude", last_name: "Bourvil", email: "cbourvil@gmail.com")
-    candidate2.save
+  test "association - position should have several candidates" do
     assert_equal 2, @position.candidates.size
+  end
+
+  test 'dependent destroy - destroying position should destroy linked candidate' do
+    assert_difference('Candidate.count', -2) do
+      @position.destroy
+    end
   end
 end
 

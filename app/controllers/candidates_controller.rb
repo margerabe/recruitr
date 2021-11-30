@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CandidatesController < ApplicationController
-  before_action :set_candidate, only: %i[show edit update destroy]
+  before_action :set_candidate, only: %i[show update destroy]
 
   def index
     render json: Candidate.includes([:position, :interview])
@@ -39,7 +39,7 @@ class CandidatesController < ApplicationController
 
   def destroy
     @candidate.destroy
-    render json: Candidate.all
+    render json: candidates_url, status: :no_content
   end
 
   private

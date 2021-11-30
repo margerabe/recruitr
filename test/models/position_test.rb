@@ -23,6 +23,7 @@ class PositionTest < ActiveSupport::TestCase
   end
 
   test 'dependent destroy - destroying position should destroy linked candidate' do
+    Interview.destroy_all
     assert_difference('Candidate.count', -2) do
       @position.destroy
     end

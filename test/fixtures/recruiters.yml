@@ -2,10 +2,8 @@ one:
   first_name: String
   last_name: String
   email: String
-  position: one
 
 two:
   first_name: String
   last_name: String
-  email: String2
-  position: one
+  email: String

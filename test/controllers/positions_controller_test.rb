@@ -15,7 +15,7 @@ class PositionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'SHOW position' do
     get position_url(@position)
-    
+
     assert_response :success
   end
 
@@ -28,9 +28,11 @@ class PositionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'UPDATE position' do
-    patch position_url(@position), params: { position: { title: "New title" } }
+    patch position_url(@position), params: { position: { title: "New position" } }
+    json_response = JSON.parse(response.body)
 
     assert_response :success
+    assert_equal "New position", json_response["title"]
   end
 
   test 'should not UPDATE position with blank title' do
@@ -40,6 +42,7 @@ class PositionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'DESTROY position' do
+    Interview.destroy_all
     assert_difference('Position.count', -1) do
       delete position_url(@position)
     end

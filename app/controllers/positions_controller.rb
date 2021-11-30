@@ -25,7 +25,7 @@ class PositionsController < ApplicationController
     @position.update(position_params)
 
     if @position.save
-      render position_url(@position)
+      render json: @position
     else
       render_error(@position)
     end
@@ -33,7 +33,7 @@ class PositionsController < ApplicationController
 
   def destroy
     @position.destroy
-    render positions_url, status: :no_content
+    render json: positions_url, status: :no_content
   end
 
   private

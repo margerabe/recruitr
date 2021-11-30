@@ -20,3 +20,5 @@ Possibility to **create an interview** via POST /interviews. Based on following 
 - The interview necessitates a start_time and end_time of the following format (raw json): "16/02/2022 10:00"
 
 After creation of an interview, an **e-mail** is sent to both the recruiter and the candidate along with an .ics file for Outlook integration.
+
+Unit and functional tests are in place for most functionalities of the app.

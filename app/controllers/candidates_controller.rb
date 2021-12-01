@@ -11,10 +11,6 @@ class CandidatesController < ApplicationController
     render json: @candidate
   end
 
-  def new
-    candidate = Candidate.new
-  end
-
   def create
     candidate = Candidate.new(candidate_params)
 

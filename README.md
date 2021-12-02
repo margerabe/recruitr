@@ -61,7 +61,7 @@ DELETE /positions/:id
 {
     "position": {
         "title": "Back-end Developer",
-        "skill_ids": [5, 6]  _(optional)_
+        "skill_ids": [5, 6]  (optional)
     }
 }
 ```

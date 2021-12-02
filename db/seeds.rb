@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'faker'
 
 puts 'Destroying existing records...'
 Interview.destroy_all
@@ -8,15 +9,18 @@ Recruiter.destroy_all
 Skill.destroy_all
 
 puts 'Creating positions...'
-position = Position.create(title: 'Full Stack Engineer')
-position1 = Position.create(title: 'Frontend Engineer')
+
+25.times do 
+  Position.create(title: Faker::Job.title)
+end
+
 puts 'Positions created!'
 
 puts 'Creating candidates...'
 candidate = Candidate.create(first_name: 'Raphaël', last_name: 'Marsan', email: 'marsanraphael@gmail.com',
-                             position: position)
+                             position: Position.first)
 candidate2 = Candidate.create(first_name: 'Jean-Luc', last_name: 'Leclerc', email: 'jlleclerc123456789@gmail.com',
-                              position: position1)
+                              position: Position.limit(1).offset(1)[0])
 
 puts 'Creating recruiters...'
 recruiter = Recruiter.create(first_name: 'Jean-Marie', last_name: 'Leduc', email: 'jleduc123456789@gmail.com')
@@ -25,10 +29,11 @@ Recruiter.create(first_name: 'Sébastien', last_name: 'Paulus', email: 'spaulus1
 puts 'Recruiters created!'
 
 puts 'Creating skills...'
-Skill.create(name: 'Marketing')
-Skill.create(name: 'Javascript')
-Skill.create(name: 'Ruby')
-Skill.create(name: 'Coffeescript')
+
+25.times do
+  Skill.create(name: Faker::Job.field)
+end
+
 puts 'Skills created!'
 
 puts 'Creating interviews...'

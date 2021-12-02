@@ -31,7 +31,7 @@ puts 'Recruiters created!'
 puts 'Creating skills...'
 
 25.times do
-  Skill.create(name: Faker::Job.field)
+  Skill.create(name: Faker::Job.key_skill)
 end
 
 puts 'Skills created!'

@@ -21,11 +21,11 @@ User stories; the HR manager (the user) is able to:
 
 <h1> DB Schema </h1>
 
-![image](https://user-images.githubusercontent.com/66962570/144394337-76f1186d-54fc-440b-a495-4046e4c03337.png)
+<img src="https://user-images.githubusercontent.com/66962570/144394337-76f1186d-54fc-440b-a495-4046e4c03337.png" width="500"/>
 
 <h1>API endpoints & docs</h2>
 
-<h2>Skill</h2>
+<h3>Skill</h3>
 GET /skills
 GET /skills/:id
 POST /skills
@@ -40,12 +40,12 @@ DELETE /skills/:id
 }
 ```
 
-<h2>Position</h2>
-GET /positions
-GET /positions/:id
-POST /positions
-PATCH /positions/:id
-DELETE /positions/:id
+<h3>Position</h3>
+GET /positions  
+GET /positions/:id  
+POST /positions  
+PATCH /positions/:id  
+DELETE /positions/:id  
 
 ```
 {
@@ -56,10 +56,10 @@ DELETE /positions/:id
 }
 ```
 
-<h2>PositionSkill (for assigning a skill to a position post creation of the position</h2>
+<h3>PositionSkill (for assigning a skill to a position post creation of the position</h3>
 
-GET /position_skills
-POST /position_skills
+GET /position_skills  
+POST /position_skills  
 
 ```
 { 
@@ -70,12 +70,12 @@ POST /position_skills
 }
 ```
 
-<h2>Candidate</h2>
-GET /candidates
-GET /candidates/:id
-POST /candidates
-PATCH /candidates/:id
-DELETE /candidates/:id
+<h3>Candidate</h3>
+GET /candidates  
+GET /candidates/:id  
+POST /candidates  
+PATCH /candidates/:id  
+DELETE /candidates/:id  
 
 ```
 {
@@ -88,16 +88,16 @@ DELETE /candidates/:id
 }
 ```
 
-<h2>Recruiter</h2>
-GET /recruiters
-GET /recruiters/:id
-POST /recruiters
-PATCH /recruiters/:id
-DELETE /recruiters/:id
+<h3>Recruiter</h3>
+GET /recruiters  
+GET /recruiters/:id  
+POST /recruiters  
+PATCH /recruiters/:id  
+DELETE /recruiters/:id  
 
 ```
 {
-    "candidate": {
+    "recruiter": {
         "first_name": "Jean",
         "last_name": "Ponty",
         "email": "jponty123456789@gmail.com"
@@ -105,12 +105,12 @@ DELETE /recruiters/:id
 }
 ```
 
-<h2>Interview</h2>
-GET /interviews
-GET /interviews/:id
-POST /interviews
-PATCH /interviews/:id
-DELETE /interviews/:id
+<h3>Interview</h3>
+GET /interviews  
+GET /interviews/:id  
+POST /interviews  
+PATCH /interviews/:id  
+DELETE /interviews/:id  
 
 ```
 {

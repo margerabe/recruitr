@@ -1,8 +1,6 @@
 <h1> About </h1>
 
-**[Recruitr app](https://recruitr-rm.herokuapp.com/) - Small API powering a recruitment system**
-
-Recruitr is a small API-only app, powering a basic internal recruitment management tool for HR representatives.
+**[Recruitr](https://recruitr-rm.herokuapp.com/)** is a small API-only app, powering a basic internal recruitment management tool for HR representatives.
 
 About the project:
 - No authentication layer was built in the context of this app. Assumption: only one user, the HR manager, who is logged in from the start
@@ -23,14 +21,25 @@ User stories; the HR manager (the user) is able to:
 
 <img src="https://user-images.githubusercontent.com/66962570/144394337-76f1186d-54fc-440b-a495-4046e4c03337.png" width="500"/>
 
+<h1> Requirements & running the project </h1>
+
+This project runs on Ruby 3.0.3 / Rails 6.1.3 / PostgreSQL DB
+
+- Clone this repo on your local drive
+- Run `bundle install`
+- Database: run `rails db:drop` `rails db:create` `rails db:migrate` `rails db:seed` to populate the DB
+- Launch the development server with `bin/rails server` and navigate to http://localhost:3000
+- The project is deployed to Heroku @ [https://recruitr-rm.herokuapp.com/](url)
+
 <h1>API endpoints & docs</h2>
 
 <h3>Skill</h3>
-GET /skills
-GET /skills/:id
-POST /skills
-PATCH /skills/:id
-DELETE /skills/:id
+
+GET /skills  
+GET /skills/:id  
+POST /skills  
+PATCH /skills/:id  
+DELETE /skills/:id  
 
 ```
 {
@@ -41,6 +50,7 @@ DELETE /skills/:id
 ```
 
 <h3>Position</h3>
+
 GET /positions  
 GET /positions/:id  
 POST /positions  
@@ -56,7 +66,7 @@ DELETE /positions/:id
 }
 ```
 
-<h3>PositionSkill (for assigning a skill to a position post creation of the position</h3>
+<h3>PositionSkill (for assigning a skill to a position post creation of the position)</h3>
 
 GET /position_skills  
 POST /position_skills  
@@ -71,6 +81,7 @@ POST /position_skills
 ```
 
 <h3>Candidate</h3>
+
 GET /candidates  
 GET /candidates/:id  
 POST /candidates  
@@ -82,13 +93,14 @@ DELETE /candidates/:id
     "candidate": {
         "first_name": "Bertrand",
         "last_name": "Lasalle",
-        "email": "blasalle123456789@gmail.com", 
+        "email": "blasalle123@gmail.com", 
         "position_id": 1
     }
 }
 ```
 
 <h3>Recruiter</h3>
+
 GET /recruiters  
 GET /recruiters/:id  
 POST /recruiters  
@@ -100,12 +112,13 @@ DELETE /recruiters/:id
     "recruiter": {
         "first_name": "Jean",
         "last_name": "Ponty",
-        "email": "jponty123456789@gmail.com"
+        "email": "jponty123@gmail.com"
     }
 }
 ```
 
 <h3>Interview</h3>
+
 GET /interviews  
 GET /interviews/:id  
 POST /interviews  
@@ -118,17 +131,8 @@ DELETE /interviews/:id
         "start_time": "16/02/2022 10:00", 
         "end_time": "16/02/2022 11:00", 
         "candidate_id": 1, 
-        "recruiter_id": 2
+        "recruiter_id": 1
     }
 }
 ```
 
-<h1> Requirements & running the project </h1>
-
-This project runs on Ruby 3.0.3 / Rails 6.1.3 / PostgreSQL DB
-
-- Clone this repo on your local drive
-- Run `bundle install`
-- Database: run `rails db:drop` `rails db:create` `rails db:migrate` `rails db:seed` to populate the DB
-- Launch the development server with `bin/rails server` and navigate to http://localhost:3000
-- The project is also deployed to [https://recruitr-rm.herokuapp.com/](url)

@@ -30,20 +30,41 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "should update user" do
-      patch user_url(@user), params: { user: { email: @user.email, password: '123456' } }, as: :json
+      patch user_url(@user), 
+        params: { user: { email: @user.email, password: '123456' } }, 
+        headers: { Authorization: JsonWebToken.encode(user_id: @user.id) },
+        as: :json
       assert_response :success
     end
 
-    test "should not update other user" do
-      patch user_url(@user), params: { user: { email: 'bad_email', password: '123456' } }, as: :json
+    test "should forbid update user" do
+      patch user_url(@user), params: { user: { email: @user.email, password: '123456' } }, as: :json
+      assert_response :forbidden
+    end
+
+    test "should not update user with invalid email" do
+      patch user_url(@user), 
+        params: { user: { email: 'bad_email', password: '123456' } }, 
+        headers: { Authorization: JsonWebToken.encode(user_id: @user.id) },
+        as: :json
       assert_response :unprocessable_entity
     end
 
     test "should destroy user" do
       assert_difference('User.count', -1) do
-        delete user_url(@user), as: :json
+        delete user_url(@user), 
+          headers: { Authorization: JsonWebToken.encode(user_id: @user.id) },
+          as: :json
       end
 
       assert_response :no_content
+    end
+
+    test "should forbid destroy user" do
+      assert_no_difference('User.count') do
+        delete user_url(@user), as: :json
+      end
+
+      assert_response :forbidden
     end
 end

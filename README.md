@@ -3,12 +3,26 @@
 **[Recruitr](https://recruitr-rm.herokuapp.com/)** is a small API-only app, powering a basic internal recruitment management tool for HR representatives.
 
 About the project:
-- No authentication is necessary for the relevant CRUD actions to be performed by the HR manager
-- A user model exists nonetheless with a basic JWT token authentication layer for the update & detroy actions on the users controller. It uses ruby-jwt and bcrypt gems (cf. commits)
 - No versioning was done in the context of this app
 - Unit and functional tests are in place for most functionalities of the app (using Minitest)
+- No authentication is necessary for the relevant CRUD actions to be performed by the HR manager. A user model exists nonetheless with a basic JWT token authentication layer for the update & detroy actions on the users controller, for the sake of example. It uses ruby-jwt and bcrypt gems. How to:
 
-User stories; the HR manager (the user) is able to:
+1. Request a JWT token with a POST to /tokens with the following body  
+
+```
+{
+    "user" : {
+      "email": "marsanraphael@gmail.com",
+      "password": "123456"
+    }
+}
+```
+
+2. You are now able to update a user (eg. PATCH /users/1) by including the obtained token in the header "Authorization":
+
+<h3>User stories</h3>
+
+The HR manager (the user) is able to:
 - Create skills (eg. Marketing, Javascript, Ruby...) which he/she will later ba able link to a specific position
 - Create positions for internal job offerings, with the possibility to assign specific skills to it from the start (+ usual CRUD actions)
 - Create candidates (starting from the CV profiles he/she receives), which implies linking it directly to one specific position (one position per candidate only) (+ usual CRUD actions)

@@ -3,7 +3,8 @@
 **[Recruitr](https://recruitr-rm.herokuapp.com/)** is a small API-only app, powering a basic internal recruitment management tool for HR representatives.
 
 About the project:
-- No authentication layer was built in the context of this app. Assumption: only one user, the HR manager, who is logged in from the start
+- No authentication is necessary for the relevant CRUD actions to be performed by the HR manager
+- A user model exists nonetheless with a basic JWT token authentication layer for the update & detroy actions on the users controller. It uses ruby-jwt and bcrypt gems
 - No versioning was done in the context of this app
 - Unit and functional tests are in place for most functionalities of the app
 

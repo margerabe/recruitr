@@ -6,7 +6,7 @@ About the project:
 - No authentication is necessary for the relevant CRUD actions to be performed by the HR manager
 - A user model exists nonetheless with a basic JWT token authentication layer for the update & detroy actions on the users controller. It uses ruby-jwt and bcrypt gems (see the branch "authentication")
 - No versioning was done in the context of this app
-- Unit and functional tests are in place for most functionalities of the app
+- Unit and functional tests are in place for most functionalities of the app (using Minitest)
 
 User stories; the HR manager (the user) is able to:
 - Create skills (eg. Marketing, Javascript, Ruby...) which he/she will later ba able link to a specific position

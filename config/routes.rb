@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   root 'positions#index'
 
+  resources :users, except: %i[new edit]
+  resources :tokens, only: %i[create]
+
   resources :positions, except: %i[new edit]
   resources :candidates, except: %i[new edit]
   resources :recruiters, except: %i[new edit]

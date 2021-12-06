@@ -27,3 +27,6 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem "jwt", "~> 2.3"
+gem "bcrypt", "~> 3.1"

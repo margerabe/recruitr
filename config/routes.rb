@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   root 'positions#index'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :create]
 
   resources :positions, except: %i[new edit]
   resources :candidates, except: %i[new edit]

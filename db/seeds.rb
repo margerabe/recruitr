@@ -7,6 +7,12 @@ Candidate.destroy_all
 Position.destroy_all
 Recruiter.destroy_all
 Skill.destroy_all
+User.destroy_all
+
+puts 'Creating users...'
+
+User.create(email: "marsanraphael@gmail.com", password: "123456")
+User.create(email: "marcdupuis@gmail.com", password: "123456")
 
 puts 'Creating positions...'
 

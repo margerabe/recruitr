@@ -28,4 +28,22 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
       assert_response :unprocessable_entity
     end
+
+    test "should update user" do
+      patch user_url(@user), params: { user: { email: @user.email, password: '123456' } }, as: :json
+      assert_response :success
+    end
+
+    test "should not update other user" do
+      patch user_url(@user), params: { user: { email: 'bad_email', password: '123456' } }, as: :json
+      assert_response :unprocessable_entity
+    end
+
+    test "should destroy user" do
+      assert_difference('User.count', -1) do
+        delete user_url(@user), as: :json
+      end
+
+      assert_response :no_content
+    end
 end

@@ -15,8 +15,4 @@ RSpec.describe Position, type: :model do
     position2 = build(:position, title: nil)
     expect(position2).to_not be_valid
   end
-
-  # describe 'associations' do
-  #   it { should have_many(:candidates) }
-  # end
 end

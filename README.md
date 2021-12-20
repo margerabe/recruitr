@@ -18,7 +18,7 @@ About the project:
 }
 ```
 
-2. You are now able to update a user (eg. PATCH /users/1) by including the obtained token in the header "Authorization":
+2. You are now able to update a user (eg. PATCH /users/1) by including the obtained token in the header "Authorization".
 
 <h3>User stories</h3>
 
